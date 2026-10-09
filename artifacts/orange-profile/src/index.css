@@ -281,3 +281,23 @@ body { background-color: var(--paper); }
   .pill-button {padding:12px 15px;}
   .content-date {font-size:9px;}
 }
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+  background: #000 !important;
+}
+
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+.empty-page {
+  width: 100%;
+  min-height: 100vh;
+  background: #000;
+}

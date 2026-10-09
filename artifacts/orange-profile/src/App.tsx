@@ -350,11 +350,15 @@ function Home() {
   );
 }
 
+function BlackPage() {
+  return <main className="empty-page" aria-label="Blank black page" />;
+}
+
 function Router() {
   return (
     <RoutedErrorBoundary>
       <Switch>
-        <Route path="/" component={Home} />
+        <Route path="/" component={BlackPage} />
         <Route component={NotFound} />
       </Switch>
     </RoutedErrorBoundary>
