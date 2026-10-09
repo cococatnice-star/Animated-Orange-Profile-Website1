@@ -22,7 +22,6 @@ import { Route, Switch, useLocation, Router as WouterRouter } from 'wouter';
 const queryClient = new QueryClient();
 const PROFILE = {
   username: 'wsp_hey_areuok_yes',
-  avatar: '/images/discord-avatar-source-crop.png',
 };
 
 type Track = { name: string; src: string };
@@ -142,7 +141,9 @@ function Home() {
   return (
     <main className="profile-stage" aria-label="Orange Profile">
       <div className="profile-card" aria-label={`Discord profile: ${PROFILE.username}`}>
-        <img className="profile-avatar" src={PROFILE.avatar} alt={`${PROFILE.username}'s avatar`} />
+        <div className="profile-avatar avatar-placeholder" role="img" aria-label="Discord profile picture pending">
+          <UserRound size={23} strokeWidth={1.5} />
+        </div>
         <span className="profile-name">{PROFILE.username}</span>
       </div>
 
@@ -160,10 +161,12 @@ function Home() {
         />
         <div className="player-row">
           <div className="track-info">
-            <img className="mini-art" src={PROFILE.avatar} alt="" />
+            <span className="mini-art mini-art-placeholder" aria-hidden="true">
+              <AudioLines size={13} strokeWidth={1.5} />
+            </span>
             <div className="track-label">
-              <span className="track-title">{track?.name || 'Choose a track'}</span>
-              <span className="track-subtitle">{track ? 'LOCAL AUDIO' : 'ADD A TRACK TO BEGIN'}</span>
+              <span className="track-title">{track?.name || 'Misery'}</span>
+              <span className="track-subtitle">{track ? 'LOCAL AUDIO' : 'PUPSIES · MP3 NEEDED'}</span>
             </div>
           </div>
           <button className="player-button" aria-label="Previous track" onClick={() => skip(-1)}>
