@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Orange Profile"
+description = "A responsive personal profile website with a Discord-inspired intro, animated about and work sections, and a built-in music player with playlist, mute, and motion controls."
+version = "1.0.0"
+id = "artifacts/orange-profile"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 24852
+
+[services.development]
+run = "pnpm --filter @workspace/orange-profile run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/orange-profile", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/orange-profile/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "24852"
+BASE_PATH = "/"
